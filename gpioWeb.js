@@ -11,7 +11,7 @@ var portToUse = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ipToUse   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
 ;
 
-if (process.env.OPENSHIFT_NODEJS_PORT) {
+if (typeof process.env.OPENSHIFT_NODEJS_PORT == "undefined") {
 	console.log("process.env.OPENSHIFT_NODEJS_PORT defined as: " + process.env.OPENSHIFT_NODEJS_PORT);
 } else {
 	portToUse = 3000; ipToUse = ip.address();
