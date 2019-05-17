@@ -23,6 +23,6 @@
   
   "scripts": {
     "start": "node gpioWeb.js"
-  },
+  }
 
 }
