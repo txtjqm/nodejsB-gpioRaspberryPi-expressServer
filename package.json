@@ -22,7 +22,7 @@
   },
   
   "scripts": {
-  "start": "node server.js"
+    "start": "node gpioWeb.js"
   },
-  "main": "gpioWeb.js"
+
 }
