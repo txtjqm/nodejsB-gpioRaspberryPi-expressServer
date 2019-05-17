@@ -11,14 +11,15 @@ var portToUse = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ipToUse   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
 ;
 
+// === is strict-type comparison
 if (typeof process.env.OPENSHIFT_NODEJS_PORT === "undefined") {
-	console.log("process.env.OPENSHIFT_NODEJS_PORT defined as: " + process.env.OPENSHIFT_NODEJS_PORT);
-} else {
 	portToUse = 3000; ipToUse = ip.address();
 	console.log("\"process.env.OPENSHIFT_NODEJS_PORT\" not defined");
+} else {
+	console.log("process.env.OPENSHIFT_NODEJS_PORT defined as: " + process.env.OPENSHIFT_NODEJS_PORT);
 }
 
-console.log("portToUse: " + portToUse + " ipToUse: " + ipToUse);
+console.log("...portToUse: " + portToUse + " ipToUse: " + ipToUse);
 
 // this causes express to serve html, javascript, images etc from the 'public' folder
 app.use(express.static('public'))  
@@ -35,7 +36,7 @@ app.get('/buttonState/:gpioPort', function (req, res) {
 	console.log('request buttonState using gpio port ' + gpioPort);
 	///////////////const button2 = new Gpio(gpioPort, 'in', 'both');
 	// warning: use ` and NOT '
-	res.json({ 'buttonState' : 11111, 'gpioPort' : `${gpioPort}` });
+	res.json({ 'buttonState' : 11111, 'gpioPort' : `${gpioPort}`, 'color' : 'blue' });
 })
 
 console.log('devtools url; browse here, displays url of debugger: ')
