@@ -7,6 +7,19 @@ const express = require('express')
 var ip = require('ip');
 const app = express();
 
+var portToUse = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    ipToUse   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
+;
+
+if (process.env.OPENSHIFT_NODEJS_PORT) {
+	console.log("process.env.OPENSHIFT_NODEJS_PORT defined as: " + process.env.OPENSHIFT_NODEJS_PORT);
+} else {
+	portToUse = 3000; ipToUse = ip.address();
+	console.log("\"process.env.OPENSHIFT_NODEJS_PORT\" not defined");
+}
+
+console.log("portToUse: " + portToUse + " ipToUse: " + ipToUse);
+
 // this causes express to serve html, javascript, images etc from the 'public' folder
 app.use(express.static('public'))  
 
@@ -26,11 +39,12 @@ app.get('/buttonState/:gpioPort', function (req, res) {
 })
 
 console.log('devtools url; browse here, displays url of debugger: ')
-console.log('http://' + ip.address() + ':' + 9229 + '/json/list'
-  + '\nhttp://' + ip.address() + ':' + 3000 +
-  '\nhttp://' + ip.address() + ':' + 3000 + '/buttonState/14')
+console.log('http://' + ipToUse + ':' + 9229 + '/json/list'
+  + '\nhttp://' + ipToUse + ':' + portToUse +
+  '\nhttp://' + ipToUse + ':' + portToUse + '/buttonState/14')
 // this is what starts up the express Web App Server:
-app.listen(3000, function() { console.log(`Example app.. listening on port 3000`);});
+// app.listen(port, function() { console.log(`Example app.. listening on port 3000`);});
+app.listen(portToUse, ipToUse);
 
 // other notes:
 // use nodemon to auto-restart after saving file

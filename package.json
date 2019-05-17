@@ -4,7 +4,7 @@
   "description": "",
   "main": "gpioWeb.js",
   "scripts": {
-    "start": "node gpioWeb.js"
+    "start": "node gpioWeb.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
