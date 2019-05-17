@@ -12,12 +12,12 @@ var portToUse = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 ;
 
 // === is strict-type comparison
-if (typeof process.env.OPENSHIFT_NODEJS_PORT === "undefined") {
+/* works without this local pc and cloud.. if (typeof process.env.OPENSHIFT_NODEJS_PORT === "undefined") {
 	portToUse = 3000; ipToUse = ip.address();
 	console.log("\"process.env.OPENSHIFT_NODEJS_PORT\" not defined");
 } else {
 	console.log("process.env.OPENSHIFT_NODEJS_PORT defined as: " + process.env.OPENSHIFT_NODEJS_PORT);
-}
+} */
 
 console.log("...portToUse: " + portToUse + " ipToUse: " + ipToUse);
 
