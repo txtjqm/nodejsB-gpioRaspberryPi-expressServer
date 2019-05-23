@@ -51,8 +51,8 @@ app.listen(portToUse, ipToUse);
 // use nodemon to auto-restart after saving file
 // nodemon server4.js
 // to debug using chrome remotely
-// run:   node --inspect=192.168.43.104 server2.js 
-// get url of debug in chrome: ==>>  http://192.168.43.104/json/list
+// run:   node --inspect=zzz.zzz.zzz.zzz server2.js 
+// get url of debug in chrome: ==>>  http://zzz.zzz.zzz.zzz/json/list
 // if running express from windows, need to kill process even after stopping it in window
 // run from dos window ==>>  taskkill /F /IM node.exe
 //          bash       ==>>  taskkill //F //IM node.exetaskkill //F //IM node.exe
