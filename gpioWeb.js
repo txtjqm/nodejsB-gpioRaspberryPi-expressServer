@@ -1,5 +1,5 @@
 
-// 5-23-2019 ...
+// 05-23-2019
 // npm i express
 // npm i ip
 
@@ -30,7 +30,7 @@ app.get('/',  function (req, res) {
 })
 
 // returns json formatted data depending on the gpioPort specified in URL (rest-style)
-// http://zzz.zzzz.zzz.zzz:3000/buttonState/14   where 14 is the gpio port
+// http://192.168.43.104:3000/buttonState/14   where 14 is the gpio port
 app.get('/buttonState/:gpioPort', function (req, res) {
 	var gpioPort = req.params.gpioPort;
 	console.log('request buttonState using gpio port ' + gpioPort);
@@ -51,8 +51,8 @@ app.listen(portToUse, ipToUse);
 // use nodemon to auto-restart after saving file
 // nodemon server4.js
 // to debug using chrome remotely
-// run:   node --inspect=zzz.zzzz.zzz.zzz server2.js 
-// get url of debug in chrome: ==>>  http://zzz.zzzz.zzz.zzz/json/list
+// run:   node --inspect=zzz.zzz.zzz.zzz server2.js 
+// get url of debug in chrome: ==>>  http://zzz.zzz.zzz.zzz/json/list
 // if running express from windows, need to kill process even after stopping it in window
 // run from dos window ==>>  taskkill /F /IM node.exe
 //          bash       ==>>  taskkill //F //IM node.exetaskkill //F //IM node.exe
