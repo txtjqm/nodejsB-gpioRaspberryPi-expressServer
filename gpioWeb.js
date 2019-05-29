@@ -1,5 +1,5 @@
 
-// 05-23-2019
+// 05-29-2019
 // npm i express
 // npm i ip
 
@@ -36,7 +36,7 @@ app.get('/buttonState/:gpioPort', function (req, res) {
 	console.log('request buttonState using gpio port ' + gpioPort);
 	///////////////const button2 = new Gpio(gpioPort, 'in', 'both');
 	// warning: use ` and NOT '
-	res.json({ 'buttonState' : 11111, 'gpioPort' : `${gpioPort}`, 'color' : 'blue' });
+	res.json({ 'buttonState' : 11111, 'gpioPort' : `${gpioPort}`, 'color' : 'from git' });
 })
 
 console.log('devtools url; browse here, displays url of debugger: ')
